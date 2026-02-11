@@ -27,7 +27,7 @@ def send_mail(content):
     # Holt Daten aus GitHub Secrets
     sender = os.environ.get('EMAIL_USER')
     password = os.environ.get('EMAIL_PASSWORD')
-    receiver = os.environ.get('EMAIL_RECEIVER') or sender
+    receiver = "jan-eric.eilers@gmx.de"
 
     if not sender or not password:
         print("Mail-Secrets fehlen!")
@@ -69,18 +69,24 @@ for sym, name in TICKERS.items():
 
 results.sort(key=lambda x: x['pe'])
 
-# --- BERICHT BAUEN ---
-bericht = f"📊 DEPOT-STATUS ({datetime.now().strftime('%d.%m. %H:%M')})\n"
-bericht += "-" * 30 + "\n"
-bericht += f"{'Name':<12} | {'Mrd.':>7} | {'KGV':>5}\n"
-bericht += "-" * 30 + "\n"
+# --- BERICHT BAUEN (Gleichmäßiger Aufbau) ---
+timestamp = datetime.now().strftime('%d.%m. %H:%M')
+bericht = f"📊 DEPOT-STATUS ({timestamp})\n"
+bericht += "=" * 34 + "\n"
+bericht += f"{'NAME':<14} | {'MRD.':>8} | {'KGV':>6}\n"
+bericht += "-" * 34 + "\n"
 
 for r in results:
-    pe_fmt = f"{r['pe']:>5.1f}" if r['pe'] < 900 else "  n/a"
-    cap_fmt = f"{r['cap']:>7.1f}" if r['cap'] > 0 else "    ?"
-    bericht += f"{r['name']:<12} | {cap_fmt} | {pe_fmt}\n"
+    # Einheitliche Formatierung: 
+    # Name 14 Zeichen linksbündig, Mrd 8 Zeichen, KGV 6 Zeichen
+    pe_fmt = f"{r['pe']:>6.1f}" if r['pe'] < 900 else "   n/a"
+    cap_fmt = f"{r['cap']:>8.1f}" if r['cap'] > 0 else "     ?"
+    
+    # Namen werden auf 14 Zeichen gekürzt, falls sie zu lang sind
+    clean_name = r['name'][:14]
+    bericht += f"{clean_name:<14} | {cap_fmt} | {pe_fmt}\n"
 
-bericht += "-" * 30
+bericht += "=" * 34
 
 print(bericht)
 send_mail(bericht)
