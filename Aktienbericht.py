@@ -26,7 +26,7 @@ TICKERS = {
 def send_mail(content):
     # Diese Werte ziehen wir aus den GitHub Secrets
     sender_email = os.environ.get('EMAIL_USER')
-    receiver_email = os.environ.get('EMAIL_USER') # Schickt es an dich selbst
+    receiver_email = "jan-eric.eilers@gmx.de" # Schickt es an dich selbst
     password = os.environ.get('EMAIL_PASSWORD')
 
     if not sender_email or not password:
