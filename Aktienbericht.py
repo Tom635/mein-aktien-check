@@ -24,57 +24,63 @@ TICKERS = {
 }
 
 def send_mail(content):
-    # Diese Werte ziehen wir aus den GitHub Secrets
-    sender_email = os.environ.get('EMAIL_USER')
-    receiver_email = "jan-eric.eilers@gmx.de" # Schickt es an dich selbst
+    # Holt Daten aus GitHub Secrets
+    sender = os.environ.get('EMAIL_USER')
     password = os.environ.get('EMAIL_PASSWORD')
+    receiver = os.environ.get('EMAIL_RECEIVER') or sender
 
-    if not sender_email or not password:
-        print("E-Mail-Zugangsdaten fehlen. Überspringe Versand.")
+    if not sender or not password:
+        print("Mail-Secrets fehlen!")
         return
 
     msg = MIMEText(content)
-    msg['Subject'] = f"📊 Dein Aktienbericht - {datetime.now().strftime('%d.%m.%Y')}"
-    msg['From'] = sender_email
-    msg['To'] = receiver_email
+    msg['Subject'] = f"📊 Depot-Update {datetime.now().strftime('%d.%m.%Y')}"
+    msg['From'] = sender
+    msg['To'] = receiver
 
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-            server.login(sender_email, password)
-            server.sendmail(sender_email, receiver_email, msg.as_string())
-        print("E-Mail erfolgreich gesendet!")
+            server.login(sender, password)
+            server.sendmail(sender, receiver, msg.as_string())
+        print("📧 Mail versendet!")
     except Exception as e:
-        print(f"Fehler beim Mail-Versand: {e}")
+        print(f"Fehler: {e}")
 
-# --- DATEN HOLEN ---
+# --- DATEN SAMMELN ---
 results = []
-print(f"Lade {len(TICKERS)} Werte...")
+print(f"Sammle Daten für {len(TICKERS)} Aktien...")
 
 for sym, name in TICKERS.items():
     try:
         t = yf.Ticker(sym)
-        # Nutze fast_info für stabilere Cap-Werte
-        cap = t.fast_info.get('market_cap', 0) / 1_000_000_000
-        # Info für KGV
-        pe = t.info.get('trailingPE') or t.info.get('forwardPE') or 999.0
+        info = t.info
+        raw_cap = info.get('marketCap')
+        mcap = raw_cap / 1_000_000_000 if raw_cap else 0
+        pe = info.get('trailingPE') or info.get('forwardPE')
         
-        results.append({'name': name[:10], 'cap': cap, 'pe': pe})
+        results.append({
+            'name': name[:12], 
+            'cap': mcap,
+            'pe': pe if pe else 999.0
+        })
     except:
         continue
-    time.sleep(1.0) # Schutz vor 429-Fehler
+    time.sleep(0.5)
 
 results.sort(key=lambda x: x['pe'])
 
-# --- BERICHT ERSTELLEN ---
-bericht = f"📊 DEPOT-CHECK ({datetime.now().strftime('%d.%m. %H:%M')})\n"
-bericht += "-" * 28 + "\n"
-bericht += f"{'Name':<10} | {'Mrd.':>7} | {'KGV':>5}\n"
-bericht += "-" * 28 + "\n"
+# --- BERICHT BAUEN ---
+bericht = f"📊 DEPOT-STATUS ({datetime.now().strftime('%d.%m. %H:%M')})\n"
+bericht += "-" * 30 + "\n"
+bericht += f"{'Name':<12} | {'Mrd.':>7} | {'KGV':>5}\n"
+bericht += "-" * 30 + "\n"
 
 for r in results:
     pe_fmt = f"{r['pe']:>5.1f}" if r['pe'] < 900 else "  n/a"
     cap_fmt = f"{r['cap']:>7.1f}" if r['cap'] > 0 else "    ?"
-    bericht += f"{r['name']:<10} | {cap_fmt} | {pe_fmt}\n"
+    bericht += f"{r['name']:<12} | {cap_fmt} | {pe_fmt}\n"
+
+bericht += "-" * 30
 
 print(bericht)
 send_mail(bericht)
