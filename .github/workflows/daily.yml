@@ -1,0 +1,22 @@
+name: Daily Stock Report
+on:
+  schedule:
+    - cron: '0 8 * * *' # Jeden Morgen um 07:00 UTC
+  workflow_dispatch: # Erlaubt manuellen Start
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: pip install yfinance
+      - name: Run script
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        run: python Aktienbericht.py
