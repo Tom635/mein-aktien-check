@@ -1,7 +1,7 @@
 name: Daily Stock Report
 on:
   schedule:
-    - cron: '0 8 * * *' # Jeden Morgen um 07:00 UTC
+    - cron: '0 6 * * *' # Jeden Morgen um 07:00 UTC
   workflow_dispatch: # Erlaubt manuellen Start
 
 jobs:
