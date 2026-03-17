@@ -15,7 +15,7 @@ TICKERS = {
     "RACE": "Ferrari", "FTK.DE": "Flatex", "FND": "Floor&Dec", "GRAB": "Grab",
     "HOG": "Harley", "ISP.MI": "Intesa", "JD": "JD.com",
     "JPM": "JPMorgan", "MC.PA": "LVMH", "LYFT": "Lyft", "UNLYF": "Unilever",
-    "MA": "Mastercard", "META": "Meta", "MU": "Micron",
+    "MA": "Mastercard", "META": "Meta", "MU": "Micron", "MSFT": "Microsoft",
     "MDLZ": "Mondelez", "NEM.DE": "Nemetschek", "NTDOY": "Nintendo",
     "PYPL": "PayPal", "PDD": "Pinduoduo", "PGR": "Progress.", "SAP": "SAP",
     "ENR.DE": "Siemens En", "SPOT": "Spotify", "TCEHY": "Tencent",
