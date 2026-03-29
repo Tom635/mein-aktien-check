@@ -19,7 +19,7 @@ TICKERS = {
     "MDLZ": "Mondelez", "NEM.DE": "Nemetschek", "NTDOY": "Nintendo",
     "PYPL": "PayPal", "PDD": "Pinduoduo", "PGR": "Progress.", "SAP": "SAP",
     "ENR.DE": "Siemens En", "SPOT": "Spotify", "TCEHY": "Tencent",
-    "TSM": "TSMC", 'TOM': "Toyota", "UCG.MI": "UniCredit", "UNP": "Union Pac",
+    "TSM": "TSMC", 'TM': "Toyota", "UCG.MI": "UniCredit", "UNP": "Union Pac",
     "V": "Visa", "WMT": "Walmart", "DIS": "Disney", "ZAL.DE": "Zalando",
     "TAVHL.IS": "TAV Airp",
 
