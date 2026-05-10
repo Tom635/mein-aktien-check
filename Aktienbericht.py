@@ -21,7 +21,7 @@ TICKERS = {
     "ENR.DE": "Siemens En", "SPOT": "Spotify", "TCEHY": "Tencent",
     "TSM": "TSMC", 'TM': "Toyota", "UCG.MI": "UniCredit", "UNP": "Union Pac",
     "V": "Visa", "WMT": "Walmart", "DIS": "Disney", "ZAL.DE": "Zalando",
-    "TAVHL.IS": "TAV Airp",
+    "TAVHL.IS": "TAV Airp", "VSCO": "Vicoria Secret", "KASPI": "Kasp",
 
     # Ergänzungen:
     "UBER": "Uber",
