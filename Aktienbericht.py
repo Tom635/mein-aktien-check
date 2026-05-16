@@ -1,4 +1,4 @@
-my mit import yfinance as yf
+import yfinance as yf
 from datetime import datetime
 import time
 import os
