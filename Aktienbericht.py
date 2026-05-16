@@ -1,4 +1,4 @@
-import yfinance as yf
+my mit import yfinance as yf
 from datetime import datetime
 import time
 import os
@@ -21,7 +21,7 @@ TICKERS = {
     "ENR.DE": "Siemens En", "SPOT": "Spotify", "TCEHY": "Tencent",
     "TSM": "TSMC", 'TM': "Toyota", "UCG.MI": "UniCredit", "UNP": "Union Pac",
     "V": "Visa", "WMT": "Walmart", "DIS": "Disney", "ZAL.DE": "Zalando",
-    "TAVHL.IS": "TAV Airp", "VSCO": "Vicoria Secret", "KSPI": "Kaspi", "BN: "Brookfield", 
+    "TAVHL.IS": "TAV Airp", "VSCO": "Vicoria Secret", "KSPI": "Kaspi", "BN": "Brookfield", 
 
     # Ergänzungen:
     "UBER": "Uber",
