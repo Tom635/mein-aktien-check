@@ -22,7 +22,7 @@ TICKERS = {
     "TSM": "TSMC", 'TM': "Toyota", "UCG.MI": "UniCredit", "UNP": "Union Pac",
     "V": "Visa", "WMT": "Walmart", "DIS": "Disney", "ZAL.DE": "Zalando",
     "TAVHL.IS": "TAV Airp", "VSCO": "Vicoria Secret", "KSPI": "Kaspi", 
-    "BN": "Brookfield", "BAM" = "Brrokfield Asset Management",
+    "BN": "Brookfield", "BAM": "Brookfield Asset Management",
 
     # Ergänzungen:
     "UBER": "Uber",
