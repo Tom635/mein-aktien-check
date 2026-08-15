@@ -8,7 +8,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 TICKERS = {
-    "ABNB": "Airbnb", "BABA": "Alibaba", "GOOGL": "Alphabet", "AMZN": "Amazon",
+   "ABNB": "Airbnb", "BABA": "Alibaba", "GOOGL": "Alphabet", "AMZN": "Amazon",
     "AXP": "Amex", "AMP.MI": "Amplifon", "ASML": "ASML", "BIDU": "Baidu",
     "BBAR": "BBVA Arg", "SAN": "Santander", "BAC": "BofA",
     "BRK-B": "Berkshire", "BIRK": "Birkenst.", "BKNG": "Booking",
@@ -32,7 +32,7 @@ TICKERS = {
     "OGI.TO": "OrganiGram",
     "ARM": "Arm Holding",
     "HCC": "Warrior Met",
-    "ARCH": "Arch Res.",
+    "ARCH": "Arch Res.", 
 }
 
 
