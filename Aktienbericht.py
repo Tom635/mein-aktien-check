@@ -32,9 +32,11 @@ TICKERS = {
     "OGI.TO": "OrganiGram",
     "ARM": "Arm Holding",
     "HCC": "Warrior Met",
-    "ARCH": "Arch Res.", 
+    "AMR": "Alpha Met.Res",
+    "RIG": "Transocean",
+    "SIE.DE": "Siemens AG",
 }
-
+   
 
 # --- FX Cache (nur für "nicht EUR/USD") ---
 _fx_cache_to_eur = {}  # currency -> rate (currency->EUR)
