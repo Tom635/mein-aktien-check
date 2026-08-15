@@ -22,7 +22,7 @@ TICKERS = {
     "ENR.DE": "Siemens En", "SPOT": "Spotify", "TCEHY": "Tencent",
     "TSM": "TSMC", 'TM': "Toyota", "UCG.MI": "UniCredit", "UNP": "Union Pac",
     "V": "Visa", "WMT": "Walmart", "DIS": "Disney", "ZAL.DE": "Zalando",
-    "TAVHL.IS": "TAV Airp", "VSCO": "Vicoria Secret", "KSPI": "Kaspi",
+    "TAVHL.IS": "TAV Airp", "VSXY": "Vicoria Secret", "KSPI": "Kaspi",
     "BN": "Brookfield", "BAM": "Brookfield Asset Management", "BYDDY": "BYD",
     "KO": "Coca-Cola",
 
@@ -30,7 +30,11 @@ TICKERS = {
     "UBER": "Uber",
     "RDC.DE": "Redcare",
     "OGI.TO": "OrganiGram",
+    "ARM": "Arm Holding",
+    "HCC": "Warrior Met",
+    "ARCH": "Arch Res.",
 }
+
 
 # --- FX Cache (nur für "nicht EUR/USD") ---
 _fx_cache_to_eur = {}  # currency -> rate (currency->EUR)
