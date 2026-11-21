@@ -28,7 +28,7 @@ TICKERS = {
 
     # Ergänzungen:
     "UBER": "Uber",
-   "NVDA": "NVIDIA"
+   "NVDA": "NVIDIA",
    "MELI": "MercadoLibre",
     "RDC.DE": "Redcare",
     "OGI.TO": "OrganiGram",
@@ -37,6 +37,15 @@ TICKERS = {
     "AMR": "Alpha Met.Res",
     "RIG": "Transocean",
     "SIE.DE": "Siemens AG",
+    "ANT": "Anthropic",
+    "AAPL": "Apple",
+    "MSFT": "Microsoft",
+    "GOOGL": "Alphabet",
+    "AMZN": "Amazon",
+    "META": "Meta Platforms",
+    "TSLA": "Tesla",
+    "SPCX": "SpaceX",
+
 }
    
 
