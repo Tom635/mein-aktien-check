@@ -28,6 +28,7 @@ TICKERS = {
 
     # Ergänzungen:
     "UBER": "Uber",
+   "NVDA": "NVIDIA"
    "MELI": "MercadoLibre",
     "RDC.DE": "Redcare",
     "OGI.TO": "OrganiGram",
